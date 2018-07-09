@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <script src="Font/jquery-3.1.1.min.js"></script>
+    <style>
+        @font-face {
+            font-family: myfn1;
+            src: url(Font/Bangnampueng.ttf);
+        }
+        body {
+            padding-top: 27ch;
+            background-image: url("IMG/Login.jpeg");
+            background-repeat: no-repeat;
+            background-size: 200ch
+        }
+        #div1 {
+            margin: auto;
+            background-color: antiquewhite;
+            width: 50ch;
+            height: 26ch;
+            text-align: center;
+            padding-top: 5ch;
+            background-color: rgba(215, 250, 252,0.4);
+            border-radius: 5ch;
+            border: solid 2px black;
+        }
+        #user, #pass {
+            font-size: 3.5ch;
+            font-family: myfn1;
+            border: solid 2px black;
+            color: darkgoldenrod;
+            background-color: 	rgba(255, 242, 204,0.3)
+        }
+        #Login, #Register {
+            font-size: 200%;
+            font-family: myfn1;
+            background-color: black;
+            color: white;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+<form action="login.php" method="post">
+    <div id="div1">
+        <input type="text" id="user" name="username" placeholder="Username">
+        <p id="p3"></p>
+        <input type="password" id="pass" name="password" placeholder="Password">
+        <p id="p2"></p>
+        <input type="submit" id="Login" value="Login" >
+        <input type="button" id="Register" value="Register">
+        <p id="p1"></p>
+    </div>
+
+</form>
+
+
+<script>
+    $(document).ready(function () {
+        $("#Register").click(function () {
+            window.location = ('03_Register.html')
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Register</title>
+  <script src="Font/jquery-3.1.1.min.js"></script>
+  <script>
+    function chane() {
+      var bt = document.getElementById('submit');
+      var username = document.getElementById('username');
+      var password = document.getElementById('password');
+      var conf_Password = document.getElementById('conf_Password');
+      var fname = document.getElementById('fname');
+      var lname = document.getElementById('lname');
+      var tel = document.getElementById('text_tel');
+      var text_area = document.getElementById('text_area');
+
+      if (username.value == "" ||
+          password.value == "" ||
+          conf_Password.value == ""||
+          fname.value == ""||
+          lname.value == ""||
+          tel.value == "" ||
+          text_area.value == ""
+          )
+      {
+
+      }else {
+        bt.setAttribute("type","submit");
+      }
+
+    }
+
+  </script>
+  <style>
+    #submit1{
+      text-align: right;
+    }
+    @font-face {
+      font-family: myfn1;
+      src: url(Font/Bangnampueng.ttf);
+    }
+    @font-face {
+      font-family: myfn2;
+      src: url(Font/WR_Tish_Kid2.ttf);
+    }
+    body{
+      padding: 10ch;
+      background-image: url("IMG/Register.jpg");
+      background-repeat: no-repeat;
+      background-size: 200ch
+    }
+    #div1{
+      margin: auto;
+      padding: 4ch;
+      width: 80ch;
+      height: 63ch;
+      border-radius: 10ch;
+      background-color: rgba(0, 0, 0,0.5);
+      border: solid 2px darkred;
+    }
+    #table{
+      color: white;
+      margin: auto;
+      font-family: myfn1;
+      font-size: 4ch;
+    }
+    #Hard_Register{
+      /*text-align: right;*/
+      font-size: 3ch;
+      color: red;
+
+    }
+    .text1{
+      font-family: myfn1;
+      font-size: 1.8ch;
+      border-radius: 0.9ch;
+      color: white;
+      background-color: rgba(0, 0, 0,0.5);
+      border: solid 1px white;
+    }
+    .p1{
+      color: red;
+    }
+    #submit,#close{
+      font-family: myfn1;
+      width: 10ch;
+      font-size: 2ch;
+      border-radius: 10ch;
+      color: white;
+      background-color: black;
+    }
+    #p1{
+      font-size: 3ch;
+      font-family: myfn2;
+      text-align: center;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<form action="regis.php" method="post">
+  <div id="div1">
+    <table id="table">
+      <tr id="Hard_Register">
+        <td>Register</td>
+      </tr>
+      <tr>
+        <td>ID :</td>
+        <td><input type="text" class="text1" id="username" name="user"></td>
+        <td class="p1">*</td>
+      </tr>
+      <tr>
+        <td>Password :</td>
+        <td><input type="Password" class="text1" id="password" name="pass1"></td>
+        <td class="p1">*</td>
+      </tr>
+      <tr>
+        <td>Confirm Password :</td>
+        <td><input type="Password" class="text1" id="conf_Password" name="pass2"></td>
+        <td class="p1">*</td>
+      </tr>
+      <tr>
+        <td>Frist name :</td>
+        <td><input type="text" class="text1" id="fname" name="fnameregis"></td>
+        <td class="p1">*</td>
+      </tr>
+      <tr>
+        <td>Last name :</td>
+        <td><input type="text" class="text1" id="lname" name="lnameregis"></td>
+      </tr>
+      <tr>
+        <td>Tel. :</td>
+        <td><input type="text" class="text1" id="text_tel" name="tel"></td>
+        <td class="p1">*</td>
+      </tr>
+      <tr>
+        <td>Address :</td>
+        <td><textarea class="text1" rows="4" cols="25" id="text_area" name="address"></textarea></td>
+        <td class="p1">*</td>
+      </tr>
+      <tr>
+        <td id="submit1"><input type="button" value="Register" id="submit" onclick="chane();"></td>
+        <td style="text-align: center"><input type="button" value="Close" id="close"></td>
+      </tr>
+    </table>
+    <p id="p1"></p>
+  </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $("#text_tel").keypress(function (e) {
+            if(e.keyCode < 47 || e.keyCode > 58){
+                e.preventDefault();
+            }
+        });
+        $("#submit").click(function () {
+            if($("#username").val() == 0){
+                $("#username").focus();
+                $("#p1").html("กรุณาใส่ Username .. ^^")
+            }
+            else if($("#password").val() == 0){
+                $("#password").focus();
+                $("#p1").html("กรุณาใส่ Password .. ^^")
+            }
+            else if($("#conf_Password").val() == 0){
+                $("#conf_Password").focus();
+                $("#p1").html("กรุณา Confirm Password .. ^^")
+            }
+            else if($("#fname").val() == 0){
+                $("#fname").focus();
+                $("#p1").html("กรุณาใส่ชื่อ .. ^^")
+            }
+            else if($("#text_tel").val() == 0){
+                $("#text_tel").focus();
+                $("#p1").html("กรุณาใส่เบอร์โทรศัพท์ .. ^^")
+            }
+
+            else if($("#text_area").val() == 0){
+                $("#text_area").focus();
+                $("#p1").html("กรุณากรอกที่อยู่ปัจจุบัน .. ^^")
+            }
+            else if($("#password").val() != $("#conf_Password").val()){
+                $("#p1").html("Confirm Password ผิดพลาด (ลองใหม่อีกครั้ง)")
+            }
+        });
+        $("#close").click(function () {
+           window.location = ('Main.php');
+        });
+    });
+</script>
+</body>
+</html>
